@@ -1,0 +1,374 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Europe PMC Article Response Schema",
+    "description": "Schema for Europe PMC API single article response",
+    "type": "object",
+    "properties": {
+      "version": {
+        "type": "string"
+      },
+      "hitCount": {
+        "type": "integer"
+      },
+      "request": {
+        "type": "object",
+        "properties": {
+          "resultType": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          }
+        }
+      },
+      "result": {
+        "$ref": "#/definitions/Article"
+      }
+    },
+    "required": ["version", "hitCount", "result"],
+    "definitions": {
+      "Article": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "pmid": {
+            "type": "string"
+          },
+          "pmcid": {
+            "type": "string"
+          },
+          "fullTextIdList": {
+            "type": "object",
+            "properties": {
+              "fullTextId": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "doi": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "authorString": {
+            "type": "string"
+          },
+          "authorList": {
+            "type": "object",
+            "properties": {
+              "author": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Author"
+                }
+              }
+            }
+          },
+          "dataLinksTagsList": {
+            "type": "object",
+            "properties": {
+              "dataLinkstag": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "journalInfo": {
+            "$ref": "#/definitions/JournalInfo"
+          },
+          "pubYear": {
+            "type": "string"
+          },
+          "pageInfo": {
+            "type": "string"
+          },
+          "abstractText": {
+            "type": "string"
+          },
+          "affiliation": {
+            "type": "string"
+          },
+          "publicationStatus": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "pubModel": {
+            "type": "string"
+          },
+          "pubTypeList": {
+            "type": "object",
+            "properties": {
+              "pubType": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "grantsList": {
+            "type": "object",
+            "properties": {
+              "grant": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Grant"
+                }
+              }
+            }
+          },
+          "keywordList": {
+            "type": "object",
+            "properties": {
+              "keyword": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "fullTextUrlList": {
+            "type": "object",
+            "properties": {
+              "fullTextUrl": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/FullTextUrl"
+                }
+              }
+            }
+          },
+          "isOpenAccess": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "inEPMC": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "inPMC": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "hasPDF": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "hasBook": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "hasSuppl": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "citedByCount": {
+            "type": "integer"
+          },
+          "hasData": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "hasReferences": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "hasTextMinedTerms": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "hasDbCrossReferences": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "hasLabsLinks": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "license": {
+            "type": "string"
+          },
+          "hasEvaluations": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "authMan": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "epmcAuthMan": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "nihAuthMan": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "hasTMAccessionNumbers": {
+            "type": "string",
+            "enum": ["Y", "N"]
+          },
+          "dateOfCreation": {
+            "type": "string",
+            "format": "date"
+          },
+          "firstIndexDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "fullTextReceivedDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "dateOfRevision": {
+            "type": "string",
+            "format": "date"
+          },
+          "electronicPublicationDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "firstPublicationDate": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "required": ["id", "source", "title"]
+      },
+      "Author": {
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "initials": {
+            "type": "string"
+          },
+          "authorAffiliationDetailsList": {
+            "type": "object",
+            "properties": {
+              "authorAffiliation": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "affiliation": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "JournalInfo": {
+        "type": "object",
+        "properties": {
+          "volume": {
+            "type": "string"
+          },
+          "journalIssueId": {
+            "type": "integer"
+          },
+          "dateOfPublication": {
+            "type": "string"
+          },
+          "monthOfPublication": {
+            "type": "integer"
+          },
+          "yearOfPublication": {
+            "type": "integer"
+          },
+          "printPublicationDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "journal": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "medlineAbbreviation": {
+                "type": "string"
+              },
+              "essn": {
+                "type": "string"
+              },
+              "issn": {
+                "type": "string"
+              },
+              "isoabbreviation": {
+                "type": "string"
+              },
+              "nlmid": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "Grant": {
+        "type": "object",
+        "properties": {
+          "grantId": {
+            "type": "string"
+          },
+          "agency": {
+            "type": "string"
+          },
+          "orderIn": {
+            "type": "integer"
+          }
+        }
+      },
+      "FullTextUrl": {
+        "type": "object",
+        "properties": {
+          "availability": {
+            "type": "string"
+          },
+          "availabilityCode": {
+            "type": "string",
+            "enum": ["OA", "S"]
+          },
+          "documentStyle": {
+            "type": "string",
+            "enum": ["pdf", "html", "doi", "xml"]
+          },
+          "site": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    }
+  }
+  
